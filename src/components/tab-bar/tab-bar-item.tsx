@@ -24,7 +24,7 @@ const TabBarItem = ({ navigation, route, isFocused, descriptors }) => {
     });
   };
 
-  if (['_sitemap', '+not-found'].includes(route.name)) return null;
+  if (['_sitemap', '+not-found', 'account'].includes(route.name)) return null;
 
   return (
     <TouchableOpacity
@@ -36,10 +36,11 @@ const TabBarItem = ({ navigation, route, isFocused, descriptors }) => {
       onPress={onPress}
       onLongPress={onLongPress}
     >
-      {options.options.tabBarIcon({
-        color: isFocused ? '#1d4ed8' : '#374151',
-        size: 22,
-      })}
+      {options.options.tabBarIcon &&
+        options.options.tabBarIcon({
+          color: isFocused ? '#1d4ed8' : '#374151',
+          size: 22,
+        })}
       <Text className={isFocused ? 'text-blue-700' : 'text-gray-700'}>{label}</Text>
     </TouchableOpacity>
   );
