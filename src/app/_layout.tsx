@@ -12,7 +12,9 @@ const StackLayout = () => (
       },
     }}
   >
-    <Stack.Screen name="(tabs)" />
+    <Stack.Screen name="(drawer)" />
+    <Stack.Screen name="folder/[id]" />
+    <Stack.Screen name="folder/edit/[id]" />
     <Stack.Screen name="vocabulary/[word]" />
   </Stack>
 );

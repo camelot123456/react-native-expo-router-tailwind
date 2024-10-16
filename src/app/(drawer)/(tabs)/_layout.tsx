@@ -1,6 +1,6 @@
 import { AntDesign } from '@expo/vector-icons';
 import { Link, Tabs } from 'expo-router';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import TabBar from 'src/components/tab-bar/tab-bar';
 import HomeLeftHerder from 'src/components/header/home-left-header';
 
@@ -13,9 +13,14 @@ const TabLayout = () => {
           options={{
             headerLeft: (props) => <HomeLeftHerder {...props} />,
             headerRight: (props) => (
-              <Link href="/vocabulary/bao1403" className="mx-4">
-                <AntDesign name="wordfile1" size={20} color="#000000" />
-              </Link>
+              <View className="flex flex-row">
+                <Link href="/about" className="mx-4">
+                  <AntDesign name="wordfile1" size={20} color="#000000" />
+                </Link>
+                <Link href="/vocabulary/bao1403" className="mx-4">
+                  <AntDesign name="wordfile1" size={20} color="#000000" />
+                </Link>
+              </View>
             ),
             headerTitleAlign: 'center',
             title: 'Home',
@@ -25,6 +30,11 @@ const TabLayout = () => {
         <Tabs.Screen
           name="folder"
           options={{
+            headerLeft: () => (
+              <Link href="/folder/create" className="mx-4">
+                <AntDesign name="plus" size={20} color="#000000" />
+              </Link>
+            ),
             headerTitleAlign: 'center',
             title: 'Folder',
             tabBarIcon: ({ color, size }) => <AntDesign name="folder1" size={size} color={color} />,
